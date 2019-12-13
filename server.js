@@ -4,6 +4,8 @@ const hbs = require("hbs");
 // Import Helpers
 require("./hbs/helpers");
 
+const port = process.env.PORT || 3000;
+
 // Middleware, es una instrucciòn o callback que se va a ejecutar siempre o importa que URL se solicite.
 app.use(express.static(__dirname + "/public"));
 
@@ -23,4 +25,7 @@ app.get("/about", (req, res) => {
   res.render("about");
 });
 
-app.listen(3000, console.log("App is running in http://localhost:3000/"));
+app.listen(
+  port,
+  console.log("App is running in http://localhost:" + port + "/")
+);
